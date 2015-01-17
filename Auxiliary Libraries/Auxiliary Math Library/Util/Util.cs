@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Auxiliary.MathTools
+namespace Libraries.MathTools
 {
     /// <summary> Вспомогательные функции. </summary>
     public class Util

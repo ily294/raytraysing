@@ -1,7 +1,7 @@
 using System;
 using System.Windows.Forms;
-using Auxiliary.MathTools;
-using Auxiliary.Raytracing;
+using Libraries.MathTools;
+using Libraries.Raytracing;
 
 namespace SceneEditor
 {

@@ -2,10 +2,10 @@
 using System.ComponentModel;
 using System.Threading;
 
-using Auxiliary.Graphics;
-using Auxiliary.MathTools;
+using Libraries.Graphics;
+using Libraries.MathTools;
 
-namespace Auxiliary.Raytracing
+namespace Libraries.Raytracing
 {
     /// <summary> Рассчитывает изображение сцены методом трассировки лучей. </summary>
     public class Engine

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Auxiliary.MathTools
+namespace Libraries.MathTools
 {
     /// <summary> Базовый класс для всех функций. </summary>
     [Serializable]

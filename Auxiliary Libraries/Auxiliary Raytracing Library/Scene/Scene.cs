@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Auxiliary.Graphics;
+using Libraries.Graphics;
 
-namespace Auxiliary.Raytracing
+namespace Libraries.Raytracing
 {
     /// <summary> Класс для представления сцены с объектами и источниками света. </summary>
     [Serializable]

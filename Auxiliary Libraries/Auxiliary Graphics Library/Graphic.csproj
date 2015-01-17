@@ -64,9 +64,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Auxiliary Math Library\Auxiliary Math Library.csproj">
+    <ProjectReference Include="..\Auxiliary Math Library\MathTools.csproj">
       <Project>{32BE5E1A-A16A-4AA5-ACA6-448A3C38C705}</Project>
-      <Name>Auxiliary Math Library</Name>
+      <Name>MathTools</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

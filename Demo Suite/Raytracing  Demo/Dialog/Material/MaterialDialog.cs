@@ -5,9 +5,9 @@ using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 
-using Auxiliary.Graphics;
-using Auxiliary.MathTools;
-using Auxiliary.Raytracing;
+using Libraries.Graphics;
+using Libraries.MathTools;
+using Libraries.Raytracing;
 
 namespace SceneEditor
 {

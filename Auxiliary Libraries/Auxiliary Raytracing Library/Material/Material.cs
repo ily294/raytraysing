@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Auxiliary.MathTools;
+using Libraries.MathTools;
 using Tao.OpenGl;
 
-namespace Auxiliary.Raytracing
+namespace Libraries.Raytracing
 {
     /// <summary> Описывает свойства материала объекта (на основе модели Уиттеда). </summary>
     [Serializable]

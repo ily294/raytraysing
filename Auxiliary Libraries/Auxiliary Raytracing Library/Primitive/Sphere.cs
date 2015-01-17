@@ -1,8 +1,8 @@
 using System;
-using Auxiliary.MathTools;
+using Libraries.MathTools;
 using Tao.OpenGl;
 
-namespace Auxiliary.Raytracing
+namespace Libraries.Raytracing
 {
     /// <summary> Объект 'Сфера'. </summary>
     [Serializable]

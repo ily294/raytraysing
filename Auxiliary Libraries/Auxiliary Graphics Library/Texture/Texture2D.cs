@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using Tao.OpenGl;
 
-namespace Auxiliary.Graphics
+namespace Libraries.Graphics
 {
 	/// <summary> Двумерная текстура. </summary>
 	public class Texture2D

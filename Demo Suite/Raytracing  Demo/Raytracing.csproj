@@ -153,17 +153,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Auxiliary Libraries\Auxiliary Graphics Library\Auxiliary Graphics Library.csproj">
+    <ProjectReference Include="..\..\Auxiliary Libraries\Auxiliary Graphics Library\Graphic.csproj">
       <Project>{6B20AB31-0C91-4B2F-9F13-A8706AF3DF94}</Project>
-      <Name>Auxiliary Graphics Library</Name>
+      <Name>Graphic</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Auxiliary Libraries\Auxiliary Math Library\Auxiliary Math Library.csproj">
+    <ProjectReference Include="..\..\Auxiliary Libraries\Auxiliary Math Library\MathTools.csproj">
       <Project>{32BE5E1A-A16A-4AA5-ACA6-448A3C38C705}</Project>
-      <Name>Auxiliary Math Library</Name>
+      <Name>MathTools</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Auxiliary Libraries\Auxiliary Raytracing Library\Auxiliary Raytracing Library.csproj">
+    <ProjectReference Include="..\..\Auxiliary Libraries\Auxiliary Raytracing Library\Raytracing.csproj">
       <Project>{A679EA16-35A2-404E-B619-0FBBA823C1E3}</Project>
-      <Name>Auxiliary Raytracing Library</Name>
+      <Name>Raytracing %28Libraries\Raytracing%29</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

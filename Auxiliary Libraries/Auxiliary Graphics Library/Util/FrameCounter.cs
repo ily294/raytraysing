@@ -1,6 +1,6 @@
 using System;
 
-namespace Auxiliary.Graphics
+namespace Libraries.Graphics
 {
 	/// <summary> ѕростой класс дл€ подсчета числа кадров секунду (FPS). </summary>
 	public class FrameCounter

@@ -1,9 +1,9 @@
 using System;
-using Auxiliary.Graphics;
-using Auxiliary.MathTools;
+using Libraries.Graphics;
+using Libraries.MathTools;
 using Tao.OpenGl;
 
-namespace Auxiliary.Raytracing
+namespace Libraries.Raytracing
 {
 	/// <summary> Представляет видимый объем (в виде параллелипипеда). </summary>
 	[Serializable]

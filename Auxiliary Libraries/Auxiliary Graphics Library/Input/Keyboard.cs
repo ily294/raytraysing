@@ -1,7 +1,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace Auxiliary.Graphics
+namespace Libraries.Graphics
 {
 	/// <summary> Индикаторы нажатых клавиш. </summary>
     public struct KeyStatus

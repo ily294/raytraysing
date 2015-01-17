@@ -1,6 +1,6 @@
 using System;
 using System.Windows.Forms;
-using Auxiliary.MathTools;
+using Libraries.MathTools;
 
 namespace SceneEditor
 {

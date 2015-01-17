@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Auxiliary.MathTools
+namespace Libraries.MathTools
 {
     /// <summary> Осуществляет анализ входной строки и строит суперпозицю вложенных функций. </summary>
     public static class Parser

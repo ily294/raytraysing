@@ -1,7 +1,7 @@
 using System;
 using Tao.OpenGl;
 
-namespace Auxiliary.Graphics
+namespace Libraries.Graphics
 {
 	/// <summary> Двумерная текстура. </summary>
 	public class Texture1D

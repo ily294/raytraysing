@@ -74,13 +74,13 @@
     <Compile Include="Scene\Volume.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Auxiliary Graphics Library\Auxiliary Graphics Library.csproj">
+    <ProjectReference Include="..\Auxiliary Graphics Library\Graphic.csproj">
       <Project>{6B20AB31-0C91-4B2F-9F13-A8706AF3DF94}</Project>
-      <Name>Auxiliary Graphics Library</Name>
+      <Name>Graphic</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Auxiliary Math Library\Auxiliary Math Library.csproj">
+    <ProjectReference Include="..\Auxiliary Math Library\MathTools.csproj">
       <Project>{32BE5E1A-A16A-4AA5-ACA6-448A3C38C705}</Project>
-      <Name>Auxiliary Math Library</Name>
+      <Name>MathTools</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
