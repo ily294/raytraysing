@@ -3,9 +3,9 @@ using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 
-using Libraries.Graphics;
-using Libraries.MathTools;
-using Libraries.Raytracing;
+using Auxiliary.Graphics;
+using Auxiliary.MathTools;
+using Auxiliary.Raytracing;
 
 namespace Texture_Exporter
 {
