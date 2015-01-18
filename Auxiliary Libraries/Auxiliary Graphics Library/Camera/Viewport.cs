@@ -1,7 +1,7 @@
 using System;
-using Libraries.MathTools;
+using Auxiliary.MathTools;
 
-namespace Libraries.Graphics
+namespace Auxiliary.Graphics
 {
     /// <summary> Параметры окна отображения. </summary>
     [Serializable]

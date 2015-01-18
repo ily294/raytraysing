@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Drawing;
 using System.Collections.Generic;
-using Libraries.MathTools;
+using Auxiliary.MathTools;
 
-namespace Libraries.Graphics
+namespace Auxiliary.Graphics
 {
     /// <summary> Простой класс для представления растра. </summary>
     [Serializable]

@@ -2,10 +2,10 @@
 using System.IO;
 using System.Text;
 
-using Libraries.MathTools;
+using Auxiliary.MathTools;
 using Tao.OpenGl;
 
-namespace Libraries.Graphics
+namespace Auxiliary.Graphics
 {
 	/// <summary> Вспомогательный класс для работы с шейдерами. </summary>
 	public class ShaderProgram

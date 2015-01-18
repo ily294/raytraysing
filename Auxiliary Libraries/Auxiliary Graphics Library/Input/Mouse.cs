@@ -1,9 +1,9 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using Libraries.MathTools;
+using Auxiliary.MathTools;
 
-namespace Libraries.Graphics
+namespace Auxiliary.Graphics
 {
 	/// <summary> Служебный класс для управления камерой при помощи мыши. </summary>
 	public class Mouse

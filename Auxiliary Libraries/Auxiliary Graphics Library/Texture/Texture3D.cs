@@ -1,7 +1,7 @@
 using System;
 using Tao.OpenGl;
 
-namespace Libraries.Graphics
+namespace Auxiliary.Graphics
 {
 	/// <summary> Трехмерная текстура. </summary>
 	public class Texture3D

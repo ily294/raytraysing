@@ -1,8 +1,8 @@
 using System;
-using Libraries.MathTools;
+using Auxiliary.MathTools;
 using Tao.OpenGl;
 
-namespace Libraries.Graphics
+namespace Auxiliary.Graphics
 {
     /// <summary> Объект 'Камера' в мировом пространстве. </summary>
     [Serializable]
