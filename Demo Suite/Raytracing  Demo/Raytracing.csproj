@@ -67,54 +67,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dialog\About\AboutDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialog\About\AboutDialog.Designer.cs">
-      <DependentUpon>AboutDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialog\Rendering\RenderDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialog\Rendering\RenderDialog.Designer.cs">
-      <DependentUpon>RenderDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialog\Transform\TransformDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialog\Transform\TransformDialog.Designer.cs">
-      <DependentUpon>TransformDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialog\Light\LightDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialog\Light\LightDialog.Designer.cs">
-      <DependentUpon>LightDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialog\Material\MaterialDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialog\Material\MaterialDialog.Designer.cs">
-      <DependentUpon>MaterialDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialog\Primitive\BoxDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialog\Primitive\BoxDialog.Designer.cs">
-      <DependentUpon>BoxDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialog\Primitive\SphereDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialog\Primitive\SphereDialog.Designer.cs">
-      <DependentUpon>SphereDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dialog\Primitive\SquareDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialog\Primitive\SquareDialog.Designer.cs">
-      <DependentUpon>SquareDialog.cs</DependentUpon>
-    </Compile>
     <Compile Include="Application\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,30 +78,6 @@
     <EmbeddedResource Include="Application\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialog\About\AboutDialog.resx">
-      <DependentUpon>AboutDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialog\Primitive\BoxDialog.resx">
-      <DependentUpon>BoxDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialog\Primitive\SphereDialog.resx">
-      <DependentUpon>SphereDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialog\Primitive\SquareDialog.resx">
-      <DependentUpon>SquareDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialog\Rendering\RenderDialog.resx">
-      <DependentUpon>RenderDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialog\Transform\TransformDialog.resx">
-      <DependentUpon>TransformDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialog\Light\LightDialog.resx">
-      <DependentUpon>LightDialog.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialog\Material\MaterialDialog.resx">
-      <DependentUpon>MaterialDialog.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

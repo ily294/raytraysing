@@ -4,9 +4,9 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
 
-using Libraries.Graphics;
-using Libraries.MathTools;
-using Libraries.Raytracing;
+using Auxiliary.Graphics;
+using Auxiliary.MathTools;
+using Auxiliary.Raytracing;
 using Tao.OpenGl;
 
 namespace SceneEditor
@@ -39,259 +39,19 @@ namespace SceneEditor
         public MainForm()
         {
             InitializeComponent();
+            InitScene();
+        }
+
+        private void InitScene()
+        {
+            OpenScene();
         }        
         
         #endregion
         
         #region Private Methods
         
-        #region Редактирование сцены
         
-        /// <summary> Добавляет на сцену объект 'Сфера'. </summary>
-        private void AddSphere()
-        {
-        	SphereDialog dialog = new SphereDialog();
-        	
-        	{
-	        	int count = 1;
-	        	
-	        	foreach (Primitive primitive in scene.Primitives)
-	        		if (primitive is Sphere) count++;
-	        	
-	        	dialog.Sphere.Name = "Sphere [" + count + "]";
-        	}
-        	
-        	if (DialogResult.OK == dialog.ShowDialog())
-        	{
-        		scene.Primitives.Add(dialog.Sphere);
-        		
-        		OutputPrimitives();       		
-        	}       	
-        }
-        
-        /// <summary> Добавляет на сцену объект 'Прямоугольник'. </summary>
-        private void AddSquare()
-        {
-        	SquareDialog dialog = new SquareDialog();
-        	
-        	{
-	        	int count = 1;
-	        	
-	        	foreach (Primitive primitive in scene.Primitives)
-	        		if (primitive is Square) count++;
-	        	
-	        	dialog.Square.Name = "Square [" + count + "]";
-        	}
-        	
-        	if (DialogResult.OK == dialog.ShowDialog())
-        	{
-        		scene.Primitives.Add(dialog.Square);
-        		
-        		OutputPrimitives();      		
-        	}       	
-        }
-        
-        /// <summary> Добавляет на сцену объект 'Параллелипипед'. </summary>
-        private void AddBox()
-        {
-        	BoxDialog dialog = new BoxDialog();
-        	
-        	{
-	        	int count = 1;
-	        	
-	        	foreach (Primitive primitive in scene.Primitives)
-	        		if (primitive is Box) count++;
-	        	
-	        	dialog.Box.Name = "Box [" + count + "]";
-        	}
-        	
-        	if (DialogResult.OK == dialog.ShowDialog())
-        	{
-        		scene.Primitives.Add(dialog.Box);
-        		
-        		OutputPrimitives();      		
-        	}        	
-        }         
-        
-        /// <summary> Изменяет параметры выделенного объекта. </summary>
-        private void EditPrimitive()
-        {
-        	if (listViewPrimitives.SelectedIndices.Count != 0)
-        	{        		
-        		if (scene.Primitives[listViewPrimitives.SelectedIndices[0]] is Sphere)
-        		{
-        			SphereDialog dialog = new SphereDialog();
-        			
-        			dialog.Sphere = (Sphere) scene.Primitives[listViewPrimitives.SelectedIndices[0]];
-        			
-        			if (DialogResult.OK == dialog.ShowDialog())
-        				scene.Primitives[listViewPrimitives.SelectedIndices[0]] = dialog.Sphere;
-        		}
-        		else
-        		{
-	         		if (scene.Primitives[listViewPrimitives.SelectedIndices[0]] is Square)
-	        		{
-	        			SquareDialog dialog = new SquareDialog();
-	        			
-	        			dialog.Square = (Square) scene.Primitives[listViewPrimitives.SelectedIndices[0]];
-	        			
-	        			if (DialogResult.OK == dialog.ShowDialog())
-	        				scene.Primitives[listViewPrimitives.SelectedIndices[0]] = dialog.Square;
-	         		}
-	         		else
-	         		{
-		         		if (scene.Primitives[listViewPrimitives.SelectedIndices[0]] is Box)
-		        		{
-		        			BoxDialog dialog = new BoxDialog();
-		        			
-		        			dialog.Box = (Box) scene.Primitives[listViewPrimitives.SelectedIndices[0]];
-		        			
-		        			if (DialogResult.OK == dialog.ShowDialog())
-		        				scene.Primitives[listViewPrimitives.SelectedIndices[0]] = dialog.Box;
-		         		}
-	         		}
-        		}
-        		
-        		OutputPrimitives();
-        	}
-        	else
-        	{
-        		MessageBox.Show("Ошибка! Не выбран объект для редактирования.");
-        	}        
-        }        
-
-        /// <summary> Удаляет со сцены выделенный объект. </summary>
-        private void RemovePrimitive()
-        {
-        	if (listViewPrimitives.SelectedIndices.Count != 0)
-        	{
-        		scene.Primitives.RemoveAt(listViewPrimitives.SelectedIndices[0]);
-        		
-        		OutputPrimitives();
-        	}
-        	else
-        	{
-        		MessageBox.Show("Ошибка! Не выбран объект для удаления.");
-        	}
-        }
-        
-        /// <summary> Удаляет со сцены все объекты. </summary>
-        private void RemoveAllPrimitives()
-        {
-        	scene.Primitives.Clear();
-        	
-        	OutputPrimitives();
-        }                
-        
-         /// <summary> Выводит список объектов в элементы графического интерфейса. </summary>
-        private void OutputPrimitives()
-        {
-        	listViewPrimitives.Items.Clear();
-        	
-        	foreach (Primitive primitive in scene.Primitives)
-        	{
-        		ListViewItem item = new ListViewItem(primitive.Name);
-        		
-        		if (primitive is Sphere)
-        			item.ImageIndex = 0;
-        		else
-        			if (primitive is Square)
-	         			item.ImageIndex = 1;
-	         		else
-	         			if (primitive is Box)
-		         			item.ImageIndex = 2;
-        		
-        		listViewPrimitives.Items.Add(item);
-        	}
-        }       
-        
-        /// <summary> Добавляет на сцену источник света. </summary>
-        private void AddLight()
-        {
-        	if (scene.Lights.Count < 8)
-        	{
-        		LightDialog dialog = new LightDialog();
-        		
-	        	dialog.Light.Number = scene.Lights.Count;
-	        	
-	        	if (DialogResult.OK == dialog.ShowDialog())
-	        	{
-	        		scene.Lights.Add(dialog.Light);
-	        		
-	        		OutputLights();
-	        	}        		
-        	}
-        	else
-        	{
-        		MessageBox.Show("Ошибка! В текущей версии вы не можете добавить более 8 источников света.");
-        	}
-        }               
-        
-        /// <summary> Изменяет параметры выделенного источника света. </summary>
-        private void EditLight()
-        {
-        	if (listViewLights.SelectedIndices.Count != 0)
-        	{
-        		LightDialog dialog = new LightDialog();
-	        	
-        		dialog.Light = scene.Lights[listViewLights.SelectedIndices[0]];
-	        	
-	        	if (DialogResult.OK == dialog.ShowDialog())
-	        		scene.Lights[listViewLights.SelectedIndices[0]] = dialog.Light;
-        	}
-        	else
-        	{
-        		MessageBox.Show("Ошибка! Не выбран источник света для редактирования.");
-        	}
-        }
-        
-        /// <summary> Удаляет со сцены выделенный источник света. </summary>
-        private void RemoveLight()
-        {
-        	if (listViewLights.SelectedIndices.Count != 0)
-        	{
-        		Gl.glDisable(Gl.GL_LIGHT0 + scene.Lights.Count - 1);        		
-        		
-        		scene.Lights.RemoveAt(listViewLights.SelectedIndices[0]);
-        		
-        		for (int i = 0; i < scene.Lights.Count; i++)
-        			scene.Lights[i].Number = i;
-        		
-        		OutputLights();
-        	}
-        	else
-        	{
-        		MessageBox.Show("Ошибка! Не выбран источник света для удаления.");
-        	}
-        }
-        
-        /// <summary> Удаляет со сцены все источники света. </summary>
-        private void RemoveAllLights()
-        {
-        	for (int i = 0; i < scene.Lights.Count; i++)
-        		Gl.glDisable(Gl.GL_LIGHT0 + i);
-        	
-        	scene.Lights.Clear();
-        	
-        	OutputLights();
-        }
-        
-        /// <summary> Выводит список источников света в элементы графического интерфейса. </summary>
-        private void OutputLights()
-        {
-        	listViewLights.Items.Clear();
-        	
-        	foreach (Light light in scene.Lights)
-        	{
-        		ListViewItem item = new ListViewItem("Light [" + (light.Number + 1) + "]");
-        		
-        		item.ImageIndex = 4;
-        		
-        		listViewLights.Items.Add(item);
-        	}
-        }        
-        
-        #endregion
         
         #region Сохранение и загрузка сцены и отдельных объектов
         
@@ -320,9 +80,7 @@ namespace SceneEditor
 					fileStream.Close();
 				}
 	        	
-	        	OutputPrimitives();
 	        	
-	        	OutputLights();
         	}
         }
         
@@ -372,7 +130,7 @@ namespace SceneEditor
 						
 						scene.Primitives.Add(primitive);
 						
-						OutputPrimitives();
+						
 					}
 					catch
 					{
@@ -384,115 +142,7 @@ namespace SceneEditor
         	}
         }
         
-        /// <summary> Сохраняет объект в файл. </summary>
-        private void SavePrimitive()
-        {
-        	if (listViewPrimitives.SelectedIndices.Count != 0)
-        	{
-	        	SaveFileDialog dialog = new SaveFileDialog();
-	        	
-	        	dialog.Filter = "Файлы объектов (*.prim) | *.prim";
-	        	
-	        	if (DialogResult.OK == dialog.ShowDialog())
-	        	{        	
-		        	using (FileStream fileStream = new FileStream(dialog.FileName, FileMode.Create))
-					{
-						IFormatter formatter = new BinaryFormatter();
-						
-						try
-						{
-							formatter.Serialize(fileStream,
-							                    scene.Primitives[listViewPrimitives.SelectedIndices[0]]);
-						}
-						catch
-						{
-							MessageBox.Show("Ошибка! Не удается сохранить объект в файл.");
-						}
-						
-						fileStream.Close();
-		        	}
-	        	}
-        	}
-        	else
-        	{
-        		MessageBox.Show("Ошибка! Не выбран объект для сохранения.");
-        	}
-        }
-        
-        /// <summary> Загружает источник света из файла. </summary>
-        private void OpenLight()
-        {
-        	if (scene.Lights.Count < 8)
-        	{
-	        	OpenFileDialog dialog = new OpenFileDialog();
-	        	
-	        	dialog.Filter = "Файлы источников света (*.light) | *.light";
-	        	
-	        	if (DialogResult.OK == dialog.ShowDialog())
-	        	{
-	        		using (FileStream fileStream = new FileStream(dialog.FileName, FileMode.Open))
-					{
-						IFormatter formatter = new BinaryFormatter();
-						
-						try
-						{					
-							Light light = (Light) formatter.Deserialize(fileStream);
-							
-							light.Number = scene.Lights.Count;
-							
-							scene.Lights.Add(light);
-							
-							OutputLights();
-						}
-						catch
-						{
-							MessageBox.Show("Ошибка! Не удается загрузить источник света из файла.");
-						}
-						
-						fileStream.Close();
-					}
-	        	}       		
-        	}
-        	else
-        	{
-        		MessageBox.Show("Ошибка! В текущей версии вы не можете добавить более 8 источников света.");
-        	}
-        }
-        
-        /// <summary> Сохраняет источник света в файл. </summary>
-        private void SaveLight()
-        {
-        	if (listViewLights.SelectedIndices.Count != 0)
-        	{
-	        	SaveFileDialog dialog = new SaveFileDialog();
-	        	
-	        	dialog.Filter = "Файлы источников света (*.light) | *.light";
-	        	
-	        	if (DialogResult.OK == dialog.ShowDialog())
-	        	{        	
-		        	using (FileStream fileStream = new FileStream(dialog.FileName, FileMode.Create))
-					{
-						IFormatter formatter = new BinaryFormatter();
-						
-						try
-						{
-							formatter.Serialize(fileStream,
-							                    scene.Lights[listViewLights.SelectedIndices[0]]);
-						}
-						catch
-						{
-							MessageBox.Show("Ошибка! Не удается сохранить источник света в файл.");
-						}
-						
-						fileStream.Close();
-		        	}
-	        	}
-        	}
-        	else
-        	{
-        		MessageBox.Show("Ошибка! Не выбран источник света для сохранения.");
-        	}
-        }             
+            
         
         /// <summary> Сохраняет сгенерированное изображение в файл. </summary>
         private void SaveImage()
@@ -650,10 +300,7 @@ namespace SceneEditor
         	SwitchMode(ViewMode.Editor);
         }
 
-        private void MenuItemAboutClick(object sender, EventArgs e)
-        {
-        	(new AboutDialog()).ShowDialog();
-        }
+       
         
         private void MenuItemExitClick(object sender, EventArgs e)
         {
@@ -679,37 +326,7 @@ namespace SceneEditor
         	InitCamera();
         } 
         
-        private void ButtonScenePropertiesClick(object sender, EventArgs e)
-        {
-        	RenderDialog dialog = new RenderDialog();
-        	
-        	dialog.MouseSpeed = mouse.Speed;        	
-        	dialog.KeyboardSpeed = keyboard.Speed;
-        	
-        	dialog.VolumeSize = scene.Volume.Size;
-        	
-        	dialog.TraceDepth = Engine.TraceDepth;        	
-        	dialog.ThreadsCount = Engine.ThreadsCount;
-        	
-        	dialog.ImageWidth = scene.Camera.Viewport.Width;
-        	dialog.ImageHeight = scene.Camera.Viewport.Height;        	
-        	dialog.FieldOfView = scene.Camera.Viewport.FieldOfView;
-        	
-        	if (DialogResult.OK == dialog.ShowDialog())
-        	{
-        		mouse.Speed = dialog.MouseSpeed;        		
-        		keyboard.Speed = dialog.KeyboardSpeed;
-        		
-        		scene.Volume.Size = dialog.VolumeSize;
-        		
-        		Engine.TraceDepth = dialog.TraceDepth;        	
-        		Engine.ThreadsCount = dialog.ThreadsCount;
-        		
-        		scene.Camera.Viewport.Width = dialog.ImageWidth;
-        		scene.Camera.Viewport.Height = dialog.ImageHeight;        	
-        		scene.Camera.Viewport.FieldOfView = dialog.FieldOfView;        		
-        	}
-        }
+      
         
         #endregion
         
@@ -784,60 +401,14 @@ namespace SceneEditor
         
         #region Редактирование сцены
     
-        private void MenuItemAddSphereClick(object sender, EventArgs e)
-        {
-        	AddSphere();
-        }
-        
-        private void MenuItemAddSquareClick(object sender, EventArgs e)
-        {
-        	AddSquare();
-        }
-        
-        private void MenuItemAddBoxClick(object sender, EventArgs e)
-        {
-        	AddBox();
-        }      
+            
         
         private void ListViewPrimitivesItemChecked(object sender, ItemCheckedEventArgs e)
         {
         	scene.Primitives[e.Item.Index].Visible = e.Item.Checked;
         }
         
-        private void ButtonPrimitivePropertiesClick(object sender, EventArgs e)
-        {
-        	EditPrimitive();
-        }       
-
-        private void ButtonRemovePrimitiveClick(object sender, EventArgs e)
-        {
-        	RemovePrimitive();
-        }
-        
-        private void ButtonRemoveAllPrimitivesClick(object sender, EventArgs e)
-        {
-        	RemoveAllPrimitives();
-        }
-        
-        private void ButtonAddLightClick(object sender, EventArgs e)
-        {
-        	AddLight();
-        }
-        
-        private void ButtonLightPropertiesClick(object sender, EventArgs e)
-        {
-        	EditLight();
-        }        
-
-        private void ButtonRemoveLightClick(object sender, EventArgs e)
-        {
-        	RemoveLight();
-        }        
-        
-        private void ButtonRemoveAllLightsClick(object sender, EventArgs e)
-        {
-        	RemoveAllLights();
-        }      
+       
         
         #endregion
         
@@ -848,20 +419,7 @@ namespace SceneEditor
         	OpenPrimitive();
         }
         
-        private void ButtonOpenLightClick(object sender, EventArgs e)
-        {
-        	OpenLight();
-        }
-        
-        private void ButtonSavePrimitiveClick(object sender, EventArgs e)
-        {
-        	SavePrimitive();
-        }
-        
-        private void ButtonSaveLightClick(object sender, EventArgs e)
-        {
-        	SaveLight();
-        }
+      
         
         private void MenuItemOpenSceneClick(object sender, EventArgs e)
         {
@@ -872,27 +430,14 @@ namespace SceneEditor
         {
         	OpenPrimitive();
         }
-        
-        private void MenuItemOpenLightClick(object sender, EventArgs e)
-        {
-        	OpenLight();
-        }
+       
         
         private void MenuItemSaveSceneClick(object sender, EventArgs e)
         {
         	SaveScene();
         }
         
-        private void MenuItemSavePrimitiveClick(object sender, EventArgs e)
-        {
-        	SavePrimitive();
-        }
-        
-        private void MenuItemSaveLightClick(object sender, EventArgs e)
-        {
-        	SaveLight();
-        }
-        
+       
         private void MenuItemSaveImageClick(object sender, EventArgs e)
         {
         	SaveImage();
@@ -906,6 +451,8 @@ namespace SceneEditor
         }
         
         #endregion       
+
+       
     }
     
     /// <summary> Режим работы окна просмотра. </summary>
