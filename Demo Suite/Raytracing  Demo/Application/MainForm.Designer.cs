@@ -31,19 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemOpen = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemOpenScene = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemOpenPrimitive = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemOpenLight = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemSave = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemSaveScene = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemSavePrimitive = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemSaveLight = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-            this.menuItemSaveImage = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuSeparatorExit = new System.Windows.Forms.ToolStripSeparator();
-            this.menuItemExit = new System.Windows.Forms.ToolStripMenuItem();
             this.режимToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemEditor = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemRender = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,112 +62,12 @@
             // 
             this.menuStrip.BackColor = System.Drawing.SystemColors.Control;
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
             this.режимToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.menuStrip.Size = new System.Drawing.Size(531, 24);
             this.menuStrip.TabIndex = 3;
-            // 
-            // fileToolStripMenuItem
-            // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuItemOpen,
-            this.menuItemSave,
-            this.toolStripMenuItem1,
-            this.menuItemSaveImage,
-            this.menuSeparatorExit,
-            this.menuItemExit});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.fileToolStripMenuItem.Text = "Файл";
-            // 
-            // menuItemOpen
-            // 
-            this.menuItemOpen.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuItemOpenScene,
-            this.menuItemOpenPrimitive,
-            this.menuItemOpenLight});
-            this.menuItemOpen.Name = "menuItemOpen";
-            this.menuItemOpen.Size = new System.Drawing.Size(209, 22);
-            this.menuItemOpen.Text = "Открыть";
-            // 
-            // menuItemOpenScene
-            // 
-            this.menuItemOpenScene.Name = "menuItemOpenScene";
-            this.menuItemOpenScene.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.menuItemOpenScene.Size = new System.Drawing.Size(160, 22);
-            this.menuItemOpenScene.Text = "Сцену";
-            this.menuItemOpenScene.Click += new System.EventHandler(this.MenuItemOpenSceneClick);
-            // 
-            // menuItemOpenPrimitive
-            // 
-            this.menuItemOpenPrimitive.Name = "menuItemOpenPrimitive";
-            this.menuItemOpenPrimitive.Size = new System.Drawing.Size(160, 22);
-            this.menuItemOpenPrimitive.Text = "Объект";
-            this.menuItemOpenPrimitive.Click += new System.EventHandler(this.MenuItemOpenPrimitiveClick);
-            // 
-            // menuItemOpenLight
-            // 
-            this.menuItemOpenLight.Name = "menuItemOpenLight";
-            this.menuItemOpenLight.Size = new System.Drawing.Size(160, 22);
-            this.menuItemOpenLight.Text = "Источник света";
-            // 
-            // menuItemSave
-            // 
-            this.menuItemSave.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuItemSaveScene,
-            this.menuItemSavePrimitive,
-            this.menuItemSaveLight});
-            this.menuItemSave.Name = "menuItemSave";
-            this.menuItemSave.Size = new System.Drawing.Size(209, 22);
-            this.menuItemSave.Text = "Сохранить";
-            // 
-            // menuItemSaveScene
-            // 
-            this.menuItemSaveScene.Name = "menuItemSaveScene";
-            this.menuItemSaveScene.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.menuItemSaveScene.Size = new System.Drawing.Size(160, 22);
-            this.menuItemSaveScene.Text = "Сцену";
-            this.menuItemSaveScene.Click += new System.EventHandler(this.MenuItemSaveSceneClick);
-            // 
-            // menuItemSavePrimitive
-            // 
-            this.menuItemSavePrimitive.Name = "menuItemSavePrimitive";
-            this.menuItemSavePrimitive.Size = new System.Drawing.Size(160, 22);
-            this.menuItemSavePrimitive.Text = "Объект";
-            // 
-            // menuItemSaveLight
-            // 
-            this.menuItemSaveLight.Name = "menuItemSaveLight";
-            this.menuItemSaveLight.Size = new System.Drawing.Size(160, 22);
-            this.menuItemSaveLight.Text = "Источник света";
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(206, 6);
-            // 
-            // menuItemSaveImage
-            // 
-            this.menuItemSaveImage.Name = "menuItemSaveImage";
-            this.menuItemSaveImage.Size = new System.Drawing.Size(209, 22);
-            this.menuItemSaveImage.Text = "Сохранить изображение";
-            this.menuItemSaveImage.Click += new System.EventHandler(this.MenuItemSaveImageClick);
-            // 
-            // menuSeparatorExit
-            // 
-            this.menuSeparatorExit.Name = "menuSeparatorExit";
-            this.menuSeparatorExit.Size = new System.Drawing.Size(206, 6);
-            // 
-            // menuItemExit
-            // 
-            this.menuItemExit.Name = "menuItemExit";
-            this.menuItemExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.menuItemExit.Size = new System.Drawing.Size(209, 22);
-            this.menuItemExit.Text = "Выход";
-            this.menuItemExit.Click += new System.EventHandler(this.MenuItemExitClick);
             // 
             // режимToolStripMenuItem
             // 
@@ -195,7 +82,7 @@
             // 
             this.menuItemEditor.Name = "menuItemEditor";
             this.menuItemEditor.ShortcutKeys = System.Windows.Forms.Keys.F5;
-            this.menuItemEditor.Size = new System.Drawing.Size(151, 22);
+            this.menuItemEditor.Size = new System.Drawing.Size(152, 22);
             this.menuItemEditor.Text = "Редактор";
             this.menuItemEditor.Click += new System.EventHandler(this.MenuItemEditorClick);
             // 
@@ -203,7 +90,7 @@
             // 
             this.menuItemRender.Name = "menuItemRender";
             this.menuItemRender.ShortcutKeys = System.Windows.Forms.Keys.F6;
-            this.menuItemRender.Size = new System.Drawing.Size(151, 22);
+            this.menuItemRender.Size = new System.Drawing.Size(152, 22);
             this.menuItemRender.Text = "Рендеринг";
             this.menuItemRender.Click += new System.EventHandler(this.MenuItemRenderClick);
             // 
@@ -441,8 +328,6 @@
             this.PerformLayout();
 
         }
-        private System.Windows.Forms.ToolStripMenuItem menuItemSaveImage;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.Label labelOrientation;
         private System.Windows.Forms.Label labelPosition;
         private System.Windows.Forms.Label labelTime;
@@ -452,16 +337,9 @@
         private System.Windows.Forms.ToolStripMenuItem режимToolStripMenuItem;
         private System.ComponentModel.BackgroundWorker backgroundWorker;
         private System.Windows.Forms.ToolStripMenuItem menuItemRender;
-        private System.Windows.Forms.ToolStripSeparator menuSeparatorExit;
         private System.Windows.Forms.Panel panelView;
         private System.Windows.Forms.ToolStripLabel labelMouseActive;
         private System.Windows.Forms.ImageList imageList;
-        private System.Windows.Forms.ToolStripMenuItem menuItemSaveLight;
-        private System.Windows.Forms.ToolStripMenuItem menuItemSavePrimitive;
-        private System.Windows.Forms.ToolStripMenuItem menuItemSaveScene;
-        private System.Windows.Forms.ToolStripMenuItem menuItemOpenLight;
-        private System.Windows.Forms.ToolStripMenuItem menuItemOpenPrimitive;
-        private System.Windows.Forms.ToolStripMenuItem menuItemOpenScene;
         private System.Windows.Forms.ToolStripButton buttonCamera;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.ToolStripButton buttonVolume;
@@ -470,14 +348,10 @@
         private System.Windows.Forms.ToolStripLabel labelViewport;
         private System.Windows.Forms.ToolStrip toolStripViewport;
         private Tao.Platform.Windows.SimpleOpenGlControl panelOpenGL;
-        private System.Windows.Forms.ToolStripMenuItem menuItemExit;
-        private System.Windows.Forms.ToolStripMenuItem menuItemSave;
-        private System.Windows.Forms.ToolStripMenuItem menuItemOpen;
         private System.Windows.Forms.MenuStrip menuStrip;
 
         #endregion
 
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
 
 
