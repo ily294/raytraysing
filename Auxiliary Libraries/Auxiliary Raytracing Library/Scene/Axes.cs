@@ -1,7 +1,7 @@
 using System;
 using Tao.OpenGl;
 
-namespace Libraries.Raytracing
+namespace Auxiliary.Raytracing
 {
 	/// <summary> Вспомогательный класс для отрисовки осей системы координат. </summary>
 	[Serializable]

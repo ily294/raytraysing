@@ -1,8 +1,8 @@
 ﻿using System;
-using Libraries.MathTools;
-using Libraries.Graphics;
+using Auxiliary.MathTools;
+using Auxiliary.Graphics;
 
-namespace Libraries.Raytracing
+namespace Auxiliary.Raytracing
 {
     /// <summary> Режим наложения текстуры. </summary>
     [Serializable]

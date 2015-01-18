@@ -1,8 +1,8 @@
 using System;
-using Libraries.MathTools;
+using Auxiliary.MathTools;
 using Tao.OpenGl;
 
-namespace Libraries.Raytracing
+namespace Auxiliary.Raytracing
 {
     /// <summary> Объект 'Прямоугольная площадка'. </summary>
     [Serializable]

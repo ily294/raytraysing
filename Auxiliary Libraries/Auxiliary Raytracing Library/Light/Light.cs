@@ -1,8 +1,8 @@
 using System;
-using Libraries.MathTools;
+using Auxiliary.MathTools;
 using Tao.OpenGl;
 
-namespace Libraries.Raytracing
+namespace Auxiliary.Raytracing
 {
     /// <summary> ќписывает свойства точечного источника света. </summary>
     [Serializable]
