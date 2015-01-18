@@ -1,7 +1,7 @@
 ﻿using System;
-using Libraries.MathTools;
+using Auxiliary.MathTools;
 
-namespace Libraries.Raytracing
+namespace Auxiliary.Raytracing
 {
     /// <summary> Описывает параметры преобразования вершин и нормалей объекта. </summary>
     [Serializable]

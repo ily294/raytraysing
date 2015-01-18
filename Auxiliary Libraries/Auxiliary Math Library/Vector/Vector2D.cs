@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Libraries.MathTools
+namespace Auxiliary.MathTools
 {
     /// <summary>Двухкомпонентный вещественный вектор. </summary>
     [Serializable]

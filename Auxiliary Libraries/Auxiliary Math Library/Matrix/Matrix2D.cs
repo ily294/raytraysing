@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Libraries.MathTools
+namespace Auxiliary.MathTools
 {
     /// <summary> Вещественная 2 x 2 матрица. </summary>
     [Serializable]

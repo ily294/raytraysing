@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Libraries.MathTools
+namespace Auxiliary.MathTools
 {
     /// <summary> Четырехкомпонентный вещественный вектор. </summary>
     [Serializable]
